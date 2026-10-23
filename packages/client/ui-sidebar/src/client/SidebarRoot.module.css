@@ -272,6 +272,13 @@
   min-width: 0;
 }
 
+/* An unoccupied mark keeps its addressable anchor but must not reserve the
+   row gap: the anchor itself is `display: contents`, so only this empty seat
+   would otherwise stand between the row's leading edge and the brand name. */
+.brandIdentity:has(> .brandMark > [data-slot="sidebar.brand.mark"]:empty) {
+  gap: 0;
+}
+
 .brandMark {
   flex: none;
   display: inline-flex;
@@ -295,23 +302,6 @@
   font-size: 17px;
   letter-spacing: 0px;
   white-space: nowrap;
-}
-
-.localBuildBrand {
-  flex: none;
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 1px;
-  height: 24px;
-  white-space: nowrap;
-}
-
-.localBuildTitle {
-  font-size: 12px;
-  line-height: 13px;
-  letter-spacing: 0;
 }
 
 .iconButton {
@@ -373,22 +363,6 @@
    secondary icon-button ink. */
 .collapsed .iconButton {
   color: var(--dsw-alias-label-primary);
-}
-
-.buildVersion {
-  flex: none;
-  display: inline-flex;
-  align-items: center;
-  height: 10px;
-  padding: 0 3px;
-  border-radius: 2px;
-  color: var(--dsw-alias-label-primary-inverted);
-  background: var(--dsw-alias-label-primary);
-  font-family: var(--ds-font-family-code);
-  font-size: 6px;
-  font-weight: 500;
-  line-height: 10px;
-  white-space: nowrap;
 }
 
 /* New Session: 38px bar, 12px radius (figma 133:7634 geometry, squared-off

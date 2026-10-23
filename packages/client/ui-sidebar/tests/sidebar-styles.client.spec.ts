@@ -72,4 +72,10 @@ describe('SidebarRoot.module.css', () => {
     expect(declarations('.fallbackBrandName')?.get('font-size')).toBe('17px')
     expect(declarations('.fallbackBrandName')?.get('white-space')).toBe('nowrap')
   })
+
+  it('drops the row gap while the mark slot renders empty', () => {
+    expect(declarations('.brandIdentity')?.get('gap')).toBe('8px')
+    expect(declarations('.brandIdentity:has(> .brandMark > [data-slot="sidebar.brand.mark"]:empty)')?.get('gap'))
+      .toBe('0')
+  })
 })
